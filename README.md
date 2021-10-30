@@ -1,1 +1,1 @@
-Abir esquema
+Abir ramas/etiquetas
