@@ -7,9 +7,9 @@ namespace ProgTarea2
 {
     class Objeto3D
     {
-        private List<Face> listaDeCaras;
-        public Vector3 centro;
-        public Objeto3D(List<Face> listaDeCaras, Vector3 centro)
+        public HashSet<Face> listaDeCaras;
+        public Vector centro { get; set; }
+        public Objeto3D(HashSet<Face> listaDeCaras, Vector centro)
         {
             this.listaDeCaras = listaDeCaras;
             this.centro = centro;
@@ -18,6 +18,16 @@ namespace ProgTarea2
             {
                 cara.centro = centro;
             }
+        }
+
+        public void Insertar(Face nuevaCara)
+        {
+            listaDeCaras.Add(nuevaCara);
+        }
+
+        public void Eliminar(Face caraAEliminar)
+        {
+            listaDeCaras.Remove(caraAEliminar);
         }
 
         public void Dibujar()

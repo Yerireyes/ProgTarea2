@@ -9,23 +9,35 @@ namespace ProgTarea2
 {
     class Face
     {
-        private List<Vector3> listaDeVertices;
+        public HashSet<Vector> listaDeVertices;
         public Color color;
-        public Vector3 centro = new Vector3(0,0,0);
+        public Vector centro;
 
-        public Face(List<Vector3> listaDeVertices, Color color)
+        public Face(HashSet<Vector> listaDeVertices, Color color, Vector centro)
         {
             this.listaDeVertices = listaDeVertices;
             this.color = color;
+            this.centro = centro;
         }
         
+        public void Insertar(Vector nuevoVertice)
+        {
+            listaDeVertices.Add(nuevoVertice);
+        }
+        
+        public void Eliminar(Vector verticeAEliminar)
+        {
+            listaDeVertices.Remove(verticeAEliminar);
+        }
+
+
         public void Dibujar()
         {
             GL.Color4(color);
             GL.Begin(PrimitiveType.Polygon);
             foreach (var vertice in listaDeVertices)
             {
-                GL.Vertex3(vertice.X + centro.X, vertice.Y + centro.Y, vertice.Z + centro.Z);
+                GL.Vertex3(vertice.X + centro.X , vertice.Y + centro.Y, vertice.Z + centro.Z);
             }
             GL.End();
             

@@ -6,11 +6,13 @@ namespace ProgTarea2
 {
     class HelloEscenario
     {
-        private List<Objeto3D> listaDeObjetos3D;
+        public HashSet<Objeto3D> listaDeObjetos3D;
+        public Vector centro;
 
-        public HelloEscenario(List<Objeto3D> listaDeObjetos3D)
+        public HelloEscenario(HashSet<Objeto3D> listaDeObjetos3D, Vector centro)
         {
             this.listaDeObjetos3D = listaDeObjetos3D;
+            this.centro = centro;
         }
 
         public void Dibujar()
